@@ -1,0 +1,43 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="shake.css">
+<script type="text/javascript">
+function updateExclamation(){
+  document.getElementById("exclamation").innerText = document.getElementById("exclamation_area").value;
+  var text = document.getElementById("exclamation_area").value;
+  window.location.replace("?exclamation=" + encodeURIComponent(text) + "&")
+
+
+}
+</script>
+</head>
+<body>
+<div class="shake_img shake">
+	<div class="shake_text notransition">
+		<div class="shake_text_center" id="exclamation">OMG!</div>
+    </div>
+</div>
+<button onclick="updateExclamation()">Update Text</button>
+    <textarea name="exclamation" id="exclamation_area" rows="10" cols="60"></textarea>
+
+ <script>
+// self executing function here
+function gup( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "SHAKE ME!!!";
+  else
+    return results[1];
+}
+(function() {
+   var exclamation_text = decodeURIComponent(gup( 'exclamation' ));
+   document.getElementById("exclamation").innerText = exclamation_text;
+})();
+</script>
+</body>
+</html>
+

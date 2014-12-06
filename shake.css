@@ -1,0 +1,98 @@
+.shake_img {
+  width: 400px;
+  height: 522px;
+  /* exactly the size of an image in our sprite */
+  background-image: url("./shake.jpg"); }
+
+/* shake */
+.shake {
+  -webkit-animation: shake steps(10) 0.5s infinite;
+  -moz-animation: shake steps(10) 0.5s infinite;
+  -ms-animation: shake steps(10) 0.5s infinite;
+  animation: shake steps(10) 0.5s infinite; }
+
+@-webkit-keyframes shake {
+  from {
+    background-position: 0px 0px; }
+  to {
+    background-position: -4000px 0px; } }
+@-moz-keyframes shake {
+  from {
+    background-position: 0px 0px; }
+  to {
+    background-position: -4000px 0px; } }
+@-ms-keyframes shake {
+  from {
+    background-position: 0px 0px; }
+  to {
+    background-position: -4000px 0px; } }
+@keyframes shake {
+  from {
+    background-position: 0px 0px; }
+  to {
+    background-position: -4000px 0px; } }
+/* shake_text section */
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important; }
+
+.shake_text {
+  position: relative;
+  width: 145px;
+  height: 62px;
+  top: 54px;
+  left: 2px;
+  /* -webkit-animation: shake_text 10s infinite steps(1000) */ }
+
+.shake_text_center {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12pt; }
+
+@-webkit-keyframes shake_text {
+  0% {
+    left: 24px;
+    top: 56px; }
+  10% {
+    left: 23px;
+    top: 58px; }
+  20% {
+    left: 24px;
+    top: 57px; }
+  30% {
+    left: 23px;
+    top: 59px; }
+  40% {
+    left: 24px;
+    top: 56px; }
+  50% {
+    left: 25px;
+    top: 56px; }
+  60% {
+    left: 22px;
+    top: 59px; }
+  70% {
+    left: 23px;
+    top: 56px; }
+  80% {
+    left: 23px;
+    top: 55px; }
+  90% {
+    left: 24px;
+    top: 59px; }
+  100% {
+    left: 21px;
+    top: 64px; } }
+
+/*# sourceMappingURL=shake.css.map */

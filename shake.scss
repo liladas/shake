@@ -1,0 +1,82 @@
+$spriteWidth: 400px;
+$spriteHeight: 522px;
+
+.shake_img { 
+    width:$spriteWidth; height:$spriteHeight; /* exactly the size of an image in our sprite */
+    background-image:url('./shake.jpg'); 
+}
+
+@mixin animation($params) { 
+    -webkit-animation:$params;
+    -moz-animation:$params;
+    -ms-animation:$params;
+    animation:$params;
+}
+@mixin keyframes($name) { 
+    @-webkit-keyframes #{$name} { @content }
+    @-moz-keyframes    #{$name} { @content }
+    @-ms-keyframes     #{$name} { @content }
+    @keyframes         #{$name} { @content }
+}
+
+@mixin anim($animName, $steps, $animNbr, $animParams){
+    .#{$animName} { 
+        @content;
+        @include animation($animName steps($steps) $animParams); 
+    }
+    @include keyframes($animName) {
+        from { background-position:0px 0px; }
+        to { background-position:-($spriteWidth *  $steps) 0px; }
+    }
+}
+
+/* shake */
+@include anim($animName:shake, $steps:10, $animNbr:0, $animParams:.5s infinite);
+
+/* shake_text section */
+$shake_x_offset: 0px;
+$shake_y_offset: 0px;
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+.shake_text {
+    position:relative;
+    width: 145px;
+    height: 62px;
+    top: ( 54px - $shake_y_offset);
+    left: ( 2px - $shake_x_offset );
+ /* -webkit-animation: shake_text 10s infinite steps(1000) */
+;
+} 
+.shake_text_center {
+   margin: 0;
+   position: absolute;  
+   text-align: center; 
+   top: 50%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%);
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   font-weight : bold;
+   font-style : italic;
+   font-size : 12pt;
+}
+
+@-webkit-keyframes shake_text {
+    0%    {left: ( 24px - $shake_x_offset ); top: ( 56px - $shake_y_offset );}
+    10%   {left: ( 23px - $shake_x_offset ); top: ( 58px - $shake_y_offset )}
+    20%   {left: ( 24px - $shake_x_offset ); top: ( 57px - $shake_y_offset );}
+    30%   {left: ( 23px - $shake_x_offset ); top: ( 59px - $shake_y_offset );}
+    40%   {left: ( 24px - $shake_x_offset ); top: ( 56px - $shake_y_offset );}
+    50%   {left: ( 25px - $shake_x_offset ); top: ( 56px - $shake_y_offset );}
+    60%   {left: ( 22px - $shake_x_offset ); top: ( 59px - $shake_y_offset ); }
+    70%   {left: ( 23px - $shake_x_offset ); top: ( 56px - $shake_y_offset );}
+    80%   {left: ( 23px - $shake_x_offset ); top: ( 55px - $shake_y_offset );}
+    90%   {left: ( 24px - $shake_x_offset ); top: ( 59px - $shake_y_offset );}
+    100%  {left: ( 21px - $shake_x_offset ); top: ( 64px - $shake_y_offset ); }
+}
+
